@@ -1,0 +1,2 @@
+# GrzegorczykSeq
+Grzegorczyk Sequence Expansion
