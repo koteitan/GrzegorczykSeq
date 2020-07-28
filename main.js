@@ -17,10 +17,12 @@ var getfrep=function(){ //button
 
 var inctarget=function(){ //button
   targetin.value=parseInt(targetin.value)+1;
+  getfrep();
 }
 
 var dectarget=function(){ //button
   targetin.value=parseInt(targetin.value)-1;
+  getfrep();
 }
 
 var doctorstop=10000000;
