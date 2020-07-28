@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><title>yaBMS - Bashicu Matrix BM4 in JavaScript</title>
+<html><head><title>Grzegorczyk Sequence Calculator</title>
 <meta http-equiv="Content-type" content="text/html; charset=sjis">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style><!--
@@ -13,14 +13,24 @@
   .tdbutton{border-width:1px;border-style:solid;border-color:white;height:30px;width:30px}
   hr{border-style:solid}
   .console{font-family:MS Gothic;color:white;background-color:black}
---></style></head><body>
-<h1>N88-BASHICU Interpreter</h1>
+--></style>
+<script type="text/javascript" src="./exarray.js"></script>
+<script type="text/javascript" src="./matrix.js"></script>
+<script type="text/javascript" src="./frep.js"></script>
+<script type="text/javascript" src="./main.js"></script>
+</head><body>
+<h1>Grzegorczyk Sequence Calculator</h1>
 <form id='form'>
-input: (multi line available)<br>
-<textarea id='intext' rows=10 style="width:95%" class='myinput'>
-</textarea><br>
+input:<br>
+<table>
+<tr><td>target number</td><td>=</td><td><input id='targetin' rows=3 class='myinput' value='5'>
+<input type=button id='mtarget' value='-' onclick="javascript:dectarget();">
+<input type=button id='ptarget' value='+' onclick="javascript:inctarget();">
+</td></tr>
+<tr><td>base         </td><td>=</td><td><input id='basein'   rows=3 class='myinput' value='3'></td></tr>
+</table>
 ↓<br>
-<input type=button id=draw value='eval' onclick='javscript:multieval();'><br>
+<input type=button id=draw value='F-representation' onclick='javscript:getfrep();'><br>
 ↓<br>
 <textarea id='outtext' rows=10 style="width:95%" class='myinput'>
 </textarea><br>
@@ -30,40 +40,15 @@ input: (multi line available)<br>
 test
 </textarea>
 </form>
-examples:
-<pre>
-Bms.parse("(0,0)(1,1)");
-Bms.parse("(0,0)(1,1)[3]").expand();
-Bms.Lng(Bms.parse("(0,0)(1,1)"));
-</pre>
 
 <address>
-<u>N88-BASHICU Interpreter</u><br>
-Original Bashicu Matrix System (<a href="http://ja.googology.wikia.com/wiki/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%96%E3%83%AD%E3%82%B0:BashicuHyudora/BASIC%E8%A8%80%E8%AA%9E%E3%81%AB%E3%82%88%E3%82%8B%E5%B7%A8%E5%A4%A7%E6%95%B0%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81#.E3.83.90.E3.82.B7.E3.82.AF.E8.A1.8C.E5.88.97.E6.95.B0.28Bashicu_matrix_number.29?oldid=15603">Bashicu Matrix System</a> was found by BashicuHyudora (<a href="http://googology.wikia.com/wiki/User:BashicuHyudora?useskin=oasis">en</a>/<a href="http://ja.googology.wikia.com/wiki/ユーザー:BashicuHyudora?useskin=oasis">ja</a>)<br>
+<u>Grgegorczyk Sequence Calculator</u><br>
+<a href="https://googology.wikia.org/ja/wiki/%E3%82%B0%E3%82%B8%E3%82%A7%E3%82%B4%E3%83%AB%E3%83%81%E3%82%AF%E6%95%B0%E5%88%97">Grgegorczyk Sequence in Googology Wiki</a><br>
+<a href="https://arxiv.org/abs/1811.09958">T. Arai. "Grzegorczyk sequence," arXiv preprint, arXiv:1811.09958, 2018</a><br>
 programmed by <a href="https://twitter.com/koteitan">koteitan</a><br>
-Source code is on <a href="https://github.com/koteitan/yaBMS/js/eval.html">github</a><br>
-Yet another BMS <a href="http://gyafun.jp/ln/basmat.cgi">Bashicu Matrix Calculator</a> by <a href="http://googology.wikia.com/wiki/User:kyodaisuu?useskin=oasis">fish</a>
+Source code is on <a href="https://github.com/koteitan/grzeseq/">github</a><br>
 </address>
 </body>
-<script type="text/javascript" src="./bms.js"></script>
-<script type="text/javascript" src="./exarray.js"></script>
-<script type="text/javascript" src="./matrix.js"></script>
-<script type="text/javascript"><!--
-var multieval=function(s){
-  outtext.value="";
-  intext.value.split(";").forEach(
-    function(l){
-      l=l.replace(/[\n]/g, "");
-      if(l!=""){
-        var e=eval(l);
-        if(e!==undefined){
-          outtext.value += e.toString()+"\n";
-        }
-      }
-    }
-  );
-}
-//--></script>
 </html>
 
 

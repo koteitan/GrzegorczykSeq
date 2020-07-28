@@ -1,15 +1,20 @@
 window.onload=function(){ //entry point
-  intext.value="(0,0,0)(1,1,1)(2,0,0)(1,1,1)[3]";  
+  targetin.value = 5;
+  basein.value   = 3;
+  getfrep();
 }
-var dothemall=function(){ //button
-  var str=intext.value;
-  //trimming \n
-  str=str.replace(/^\n*/g, "");
-  str=str.replace(/\n*$/g, "");
-  str=str.replace(/\n+/g, "\n");
-  //parse
-  var bms=Bms.parse(str);
-  //test
-  outtext.value = bms.expand().toString();
+var getfrep=function(){ //button
+  var f=Frep.parseInt(targetin.value, basein.value);
+  outtext.value = f.toStringf() + " = " + f.toString();
 };
+
+var inctarget=function(){ //button
+  targetin.value=parseInt(targetin.value)+1;
+  getfrep();
+}
+
+var dectarget=function(){ //button
+  targetin.value=parseInt(targetin.value)-1;
+  getfrep();
+}
 
