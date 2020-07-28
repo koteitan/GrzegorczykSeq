@@ -7,8 +7,8 @@ var Frep=function(){
   this.b=2;
 };
 Frep.parseInt=function(xs,bs){
-  x=parseInt(xs);
-  b=parseInt(bs);
+  var x=parseInt(xs);
+  var b=parseInt(bs);
   var f=new Frep();
   f.list=[];
   var bt=b;
