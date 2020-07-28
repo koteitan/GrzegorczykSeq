@@ -16,6 +16,7 @@ Frep.parseInt=function(xs,bs){
     var xt=0;
     while(true){
       ft=getF(xt+1,bt);
+      if(isstop)return 0;
       if(ft>x) break;
       xt++;
     }
@@ -23,6 +24,7 @@ Frep.parseInt=function(xs,bs){
     var it=0;
     while(true){
       ft=getFi(xt,it+1,bt);
+      if(isstop)return 0;
       if(ft>x) break;
       it++;
     }
@@ -46,6 +48,10 @@ var getF=function(a,b){
   if(a==0) return b+1;
   var v=b;
   for(var i=0;i<b;i++){
+    if(v>doctorstop){
+      isstop=1;
+      return 0;
+    }
     v=getF(a-1,v);
   }
   return v;
